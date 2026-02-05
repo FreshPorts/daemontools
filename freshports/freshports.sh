@@ -43,6 +43,8 @@ check_for_jobs() {
 	if [ -f ${FLAG} ]
 	then
 		echo 'yes, there is a job waiting'
+		# see https://bugs.langille.org/view.php?id=333
+		cd ${SCRIPTDIR}
 		${PERL} ./job-waiting.pl
 		if [ $? -eq 0 ]
 		then
